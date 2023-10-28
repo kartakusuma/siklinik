@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class DropTanggalInReseps extends Migration
+class DropTanggalInResepsTable extends Migration
 {
     /**
      * Run the migrations.

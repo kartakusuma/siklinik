@@ -35,30 +35,39 @@
                         <div class="form-group row">
 							<label class="col-form-label col-lg-2">Nama <span class="text-danger">*</span> </label>
 							<div class="col-lg-10">
-								<input type="text" name="nama" value="{{$user->nama}}" class="form-control border-teal-300 border-1 @error('nama') is-invalid @enderror" placeholder="Nama" required autofocus autocomplete="off" value="{{ old('nama') }}">
+								<input type="text" name="nama" value="{{$user->nama}}"
+                                class="form-control border-teal-300 border-1 @error('nama') is-invalid @enderror"
+                                placeholder="Nama" required autofocus autocomplete="off" value="{{ old('nama') }}">
 							</div>
 						</div>
                         <div class="form-group row">
 							<label class="col-form-label col-lg-2">Username <span class="text-danger">*</span> </label>
 							<div class="col-lg-10">
-								<input type="text" name="username" value="{{$user->username}}" class="form-control border-teal-300 border-1 @error('username') is-invalid @enderror" placeholder="Username" required autocomplete="off" value="{{ old('username') }}">
+								<input type="text" name="username" value="{{$user->username}}"
+                                class="form-control border-teal-300 border-1 @error('username') is-invalid @enderror"
+                                placeholder="Username" required autocomplete="off" value="{{ old('username') }}">
 							</div>
 						</div>
 						<div class="form-group row">
 							<label class="col-form-label col-lg-2">Password </label>
 							<div class="col-lg-10">
-								<input type="password" name="password" class="form-control border-teal-300 border-1 @error('password') is-invalid @enderror" placeholder="Password minimal 8 karakter" autocomplete="off" value="{{ old('password') }}">
+								<input type="password" name="password"
+                                class="form-control border-teal-300 border-1 @error('password') is-invalid @enderror"
+                                placeholder="Password minimal 8 karakter" autocomplete="off" value="{{ old('password') }}">
 							</div>
 						</div>
                         <div class="form-group row">
 							<label class="col-form-label col-lg-2">Jenis Kelamin <span class="text-danger">*</span> </label>
 							<div class="col-lg-10">
-								<select name="gender_id" id="gender_id" class="form-control form-control-select2" data-container-css-class="border-teal-300" data-dropdown-css-class="border-teal-300" required>
+								<select name="gender_id" id="gender_id" class="form-control form-control-select2"
+                                data-container-css-class="border-teal-300" data-dropdown-css-class="border-teal-300" required>
                                     @if ($roles->count() < 1)
                                         <option value="">-- Pilih Jenis Kelamin --</option>
                                     @endif
                                     @foreach ($genders as $gender)
-                                        <option value="{{$gender->id}}" {{$user->gender_id == $gender->id ? 'selected' : ''}}>{{$gender->nama}}</option>
+                                        <option value="{{$gender->id}}" {{$user->gender_id == $gender->id ? 'selected' : ''}}>
+                                            {{$gender->nama}}
+                                        </option>
                                     @endforeach
                                 </select>
 							</div>
@@ -66,30 +75,38 @@
                         <div class="form-group row">
 							<label class="col-form-label col-lg-2">Email </label>
 							<div class="col-lg-10">
-								<input type="email" name="email" value="{{$user->email}}" class="form-control border-teal-300 border-1 @error('email') is-invalid @enderror" placeholder="Email" autocomplete="off" value="{{ old('email') }}">
+								<input type="email" name="email" value="{{$user->email}}"
+                                class="form-control border-teal-300 border-1 @error('email') is-invalid @enderror"
+                                placeholder="Email" autocomplete="off" value="{{ old('email') }}">
 							</div>
 						</div>
                         <div class="form-group row">
 							<label class="col-form-label col-lg-2">Telepon </label>
 							<div class="col-lg-10">
-								<input type="string" name="telepon" value="{{$user->telepon}}" class="form-control border-teal-300 border-1 @error('telepon') is-invalid @enderror" placeholder="Telepon" autocomplete="off" value="{{ old('telepon') }}">
+								<input type="string" name="telepon" value="{{$user->telepon}}"
+                                class="form-control border-teal-300 border-1 @error('telepon') is-invalid @enderror"
+                                placeholder="Telepon" autocomplete="off" value="{{ old('telepon') }}">
 							</div>
 						</div>
                         <div class="form-group row">
 							<label class="col-form-label col-lg-2">Alamat </label>
 							<div class="col-lg-10">
-                                <textarea name="alamat" class="form-control border-teal-300 border-1" cols="30" rows="5">{{$user->alamat}}</textarea>
+                                <textarea name="alamat"
+                                class="form-control border-teal-300 border-1" cols="30" rows="5">{{$user->alamat}}</textarea>
 							</div>
 						</div>
                         <div class="form-group row">
 							<label class="col-form-label col-lg-2">Role <span class="text-danger">*</span> </label>
 							<div class="col-lg-10">
-								<select name="role_id" id="role_id" class="form-control form-control-select2" data-container-css-class="border-teal-300" data-dropdown-css-class="border-teal-300" required>
+								<select name="role_id" id="role_id" class="form-control form-control-select2"
+                                data-container-css-class="border-teal-300" data-dropdown-css-class="border-teal-300" required>
                                     @if ($roles->count() < 1)
                                         <option value="">-- Pilih Role --</option>
                                     @endif
                                     @foreach ($roles as $role)
-                                        <option value="{{$role->id}}" {{$user->role_id == $role->id ? 'selected' : ''}}>{{$role->nama}}</option>
+                                        <option value="{{$role->id}}" {{$user->role_id == $role->id ? 'selected' : ''}}>
+                                            {{$role->nama}}
+                                        </option>
                                     @endforeach
                                 </select>
 							</div>
@@ -97,7 +114,9 @@
                         <div class="form-group row">
 							<label class="col-form-label col-lg-2">Spesialisasi </label>
 							<div class="col-lg-10">
-								<input type="string" name="spesialisasi" value="{{$user->spesialisasi}}" class="form-control border-teal-300 border-1 @error('spesialisasi') is-invalid @enderror" placeholder="Spesialisasi" autocomplete="off" value="{{ old('spesialisasi') }}">
+								<input type="string" name="spesialisasi" value="{{$user->spesialisasi}}"
+                                class="form-control border-teal-300 border-1 @error('spesialisasi') is-invalid @enderror"
+                                placeholder="Spesialisasi" autocomplete="off" value="{{ old('spesialisasi') }}">
 							</div>
 						</div>
 

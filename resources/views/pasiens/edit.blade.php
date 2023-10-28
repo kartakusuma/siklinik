@@ -35,25 +35,32 @@
                         <div class="form-group row">
 							<label class="col-form-label col-lg-2">Nama <span class="text-danger">*</span> </label>
 							<div class="col-lg-10">
-								<input type="text" name="nama" class="form-control border-teal-300 border-1 @error('nama') is-invalid @enderror" placeholder="Nama" autofocus autocomplete="off" value="{{ $pasien->nama }}" required>
+								<input type="text" name="nama"
+                                class="form-control border-teal-300 border-1 @error('nama') is-invalid @enderror"
+                                placeholder="Nama" autofocus autocomplete="off" value="{{ $pasien->nama }}" required>
 							</div>
 						</div>
                         <div class="form-group row">
 							<label class="col-form-label col-lg-2">Tempat Lahir <span class="text-danger">*</span> </label>
 							<div class="col-lg-10">
-								<input type="text" name="tempat_lahir" class="form-control border-teal-300 border-1 @error('tempat_lahir') is-invalid @enderror" placeholder="Tempat Lahir" autocomplete="off" value="{{ $pasien->tempat_lahir }}" required>
+								<input type="text" name="tempat_lahir"
+                                class="form-control border-teal-300 border-1 @error('tempat_lahir') is-invalid @enderror"
+                                placeholder="Tempat Lahir" autocomplete="off" value="{{ $pasien->tempat_lahir }}" required>
 							</div>
 						</div>
 						<div class="form-group row">
 							<label class="col-form-label col-lg-2">Tanggal Lahir <span class="text-danger">*</span> </label>
 							<div class="col-lg-10">
-								<input type="date" name="tanggal_lahir" class="form-control border-teal-300 border-1 @error('tanggal_lahir') is-invalid @enderror" placeholder="Tanggal Lahir" autocomplete="off" value="{{ $pasien->tanggal_lahir }}" required>
+								<input type="date" name="tanggal_lahir"
+                                class="form-control border-teal-300 border-1 @error('tanggal_lahir') is-invalid @enderror"
+                                placeholder="Tanggal Lahir" autocomplete="off" value="{{ $pasien->tanggal_lahir }}" required>
 							</div>
 						</div>
                         <div class="form-group row">
 							<label class="col-form-label col-lg-2">Jenis Kelamin <span class="text-danger">*</span> </label>
 							<div class="col-lg-10">
-								<select name="gender_id" id="gender_id" class="form-control form-control-select2" data-container-css-class="border-teal-300" data-dropdown-css-class="border-teal-300" required>
+								<select name="gender_id" id="gender_id" class="form-control form-control-select2"
+                                data-container-css-class="border-teal-300" data-dropdown-css-class="border-teal-300" required>
                                     @if ($genders->count() < 1)
                                         <option value="">-- Pilih Jenis Kelamin --</option>
                                     @endif
@@ -66,13 +73,32 @@
                         <div class="form-group row">
 							<label class="col-form-label col-lg-2">Telepon <span class="text-danger">*</span> </label>
 							<div class="col-lg-10">
-								<input type="string" name="telepon" class="form-control border-teal-300 border-1 @error('telepon') is-invalid @enderror" placeholder="Telepon" autocomplete="off" value="{{ $pasien->telepon }}" required>
+								<input type="string" name="telepon"
+                                class="form-control border-teal-300 border-1 @error('telepon') is-invalid @enderror"
+                                placeholder="Telepon" autocomplete="off" value="{{ $pasien->telepon }}" required>
 							</div>
 						</div>
                         <div class="form-group row">
 							<label class="col-form-label col-lg-2">Alamat <span class="text-danger">*</span> </label>
 							<div class="col-lg-10">
-                                <textarea name="alamat" class="form-control border-teal-300 border-1" cols="30" rows="5" required>{{ $pasien->alamat }}</textarea>
+                                <textarea name="alamat" class="form-control border-teal-300 border-1"
+                                cols="30" rows="5" required>{{ $pasien->alamat }}</textarea>
+							</div>
+						</div>
+                        <div class="form-group row">
+							<label class="col-form-label col-lg-2">Tanggal Masuk <span class="text-danger">*</span> </label>
+							<div class="col-lg-10">
+								<input type="date" name="tanggal_masuk"
+                                class="form-control border-teal-300 border-1 @error('tanggal_masuk') is-invalid @enderror"
+                                placeholder="Tanggal Masuk" autocomplete="off" value="{{ $pasien->tanggal_masuk }}" required>
+							</div>
+						</div>
+                        <div class="form-group row">
+							<label class="col-form-label col-lg-2">Tanggal Keluar </label>
+							<div class="col-lg-10">
+								<input type="date" name="tanggal_keluar"
+                                class="form-control border-teal-300 border-1 @error('tanggal_keluar') is-invalid @enderror"
+                                placeholder="Tanggal Keluar" autocomplete="off" value="{{ $pasien->tanggal_keluar }}">
 							</div>
 						</div>
 
@@ -170,11 +196,6 @@
                             error.insertAfter(element);
                         }
                     },
-                    rules: {
-                        password: {
-                            minlength: 8
-                        }
-                    },
                     messages: {
                         nama: {
                             required: 'Mohon diisi.'
@@ -183,7 +204,7 @@
                             required: 'Mohon diisi.'
                         },
                         tanggal_lahir: {
-                            required: 'Mohon diisi. Minimal 8 karakter.'
+                            required: 'Mohon diisi.'
                         },
                         jenis_kelamin: {
                             required: 'Mohon pilih salah satu.'
@@ -193,7 +214,10 @@
                         },
                         alamat: {
                             required: 'Mohon diisi.'
-                        }
+                        },
+                        tanggal_masuk: {
+                            required: 'Mohon diisi.'
+                        },
                     },
                 });
 

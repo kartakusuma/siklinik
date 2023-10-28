@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'Resep Obat')
+@section('title', 'Edit Resep Obat')
 
 @section('css')
 
@@ -35,11 +35,13 @@
                         <div class="form-group row">
 							<label class="col-form-label col-lg-2">Bangsal </label>
 							<div class="col-lg-10">
-								<select name="bangsal_id" id="bangsal_id" class="form-control form-control-select2" data-container-css-class="border-teal-300" data-dropdown-css-class="border-teal-300">
+								<select name="bangsal_id" id="bangsal_id" class="form-control form-control-select2"
+                                data-container-css-class="border-teal-300" data-dropdown-css-class="border-teal-300">
                                     <option value="">-- Pilih Bangsal --</option>
                                     @if ($resep->ruang_id)
                                         @foreach ($bangsals as $bangsal)
-                                            <option value="{{$bangsal->id}}" {{$resep->ruang->bangsal_id == $bangsal->id ? 'selected' : ''}}>{{$bangsal->nama}}</option>
+                                            <option value="{{$bangsal->id}}"
+                                                {{$resep->ruang->bangsal_id == $bangsal->id ? 'selected' : ''}}>{{$bangsal->nama}}</option>
                                         @endforeach
                                     @else
                                         @foreach ($bangsals as $bangsal)
@@ -52,7 +54,8 @@
                         <div class="form-group row">
 							<label class="col-form-label col-lg-2">Ruang </label>
 							<div class="col-lg-10">
-								<select name="ruang_id" id="ruang_id" class="form-control form-control-select2" data-container-css-class="border-teal-300" data-dropdown-css-class="border-teal-300">
+								<select name="ruang_id" id="ruang_id" class="form-control form-control-select2"
+                                data-container-css-class="border-teal-300" data-dropdown-css-class="border-teal-300">
                                     <option value="">-- Pilih Ruang --</option>
                                     @if ($resep->ruang_id)
                                         @foreach ($ruangs as $ruang)
@@ -65,7 +68,8 @@
                         <div class="form-group row">
 							<label class="col-form-label col-lg-2">Pasien <span class="text-danger">*</span> </label>
 							<div class="col-lg-10">
-								<select name="pasien_id" id="pasien_id" class="form-control form-control-select2" data-container-css-class="border-teal-300" data-dropdown-css-class="border-teal-300" required>
+								<select name="pasien_id" id="pasien_id" class="form-control form-control-select2"
+                                data-container-css-class="border-teal-300" data-dropdown-css-class="border-teal-300" required>
                                     <option value="">-- Pilih Pasien --</option>
                                     @foreach ($pasiens as $pasien)
                                         <option value="{{$pasien->id}}" {{$resep->pasien_id == $pasien->id ? 'selected' : ''}}>{{$pasien->nama}}</option>
@@ -76,7 +80,8 @@
                         <div class="form-group row">
 							<label class="col-form-label col-lg-2">Dokter <span class="text-danger">*</span> </label>
 							<div class="col-lg-10">
-								<select name="dokter_id" id="dokter_id" class="form-control form-control-select2" data-container-css-class="border-teal-300" data-dropdown-css-class="border-teal-300" required>
+								<select name="dokter_id" id="dokter_id" class="form-control form-control-select2"
+                                data-container-css-class="border-teal-300" data-dropdown-css-class="border-teal-300" required>
                                     <option value="">-- Pilih Dokter --</option>
                                     @foreach ($dokters as $dokter)
                                         <option value="{{$dokter->id}}" {{$resep->dokter_id == $dokter->id ? 'selected' : ''}}>{{$dokter->nama}}</option>
@@ -89,7 +94,9 @@
                             <div class="col-lg-10">
                                 <div class="row">
                                     <div class="col-md-11">
-                                        <textarea id="catatan_resep" name="catatan_resep[]" rows="3" class="form-control border-teal border-1" placeholder="Catatan Resep" required>{{$resep->catatan_resep[0]}}</textarea>
+                                        <textarea id="catatan_resep" name="catatan_resep[]" rows="3"
+                                        class="form-control border-teal border-1"
+                                        placeholder="Catatan Resep" required>{{$resep->catatan_resep[0]}}</textarea>
                                     </div>
                                     <div class="col-md-1">
                                         <button type="button" class="btn btn-success btn-icon add-more2" style="display:block">
@@ -97,28 +104,31 @@
                                         </button>
                                     </div>
                                 </div>
-                                <div class="before-add-more2">
+                                <div>
                                     @php
                                         $numb = 1000;
                                     @endphp
                                     @foreach ($resep->catatan_resep as $index => $catatan)
-                                    @if($index > 0 && $catatan)
-                                    <div class="row mt-3 control-group">
-                                        <div class="col-md-11">
-                                            <textarea id="{{'catatan_resep'.$numb}}" name="catatan_resep[]" rows="3" class="form-control border-teal border-1" placeholder="Catatan Resep" required>{{$catatan}}</textarea>
-                                        </div>
-                                        <div class="col-md-1">
-                                            <button type="button" class="btn btn-danger btn-icon remove" style="display:block">
-                                                <i class="icon-cancel-circle2" title="Remove"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    @php
-                                        $numb++;
-                                    @endphp
-                                    @endif
+                                        @if($index > 0 && $catatan)
+                                            <div class="row mt-3 control-group">
+                                                <div class="col-md-11">
+                                                    <textarea id="{{'catatan_resep'.$numb}}" name="catatan_resep[]" rows="3"
+                                                    class="form-control border-teal border-1"
+                                                    placeholder="Catatan Resep" required>{{$catatan}}</textarea>
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <button type="button" class="btn btn-danger btn-icon remove" style="display:block">
+                                                        <i class="icon-cancel-circle2" title="Remove"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            @php
+                                                $numb++;
+                                            @endphp
+                                        @endif
                                     @endforeach
                                 </div>
+                                <div class="before-add-more2"></div>
                             </div>
                         </div>
 
@@ -216,11 +226,6 @@
                             error.insertAfter(element);
                         }
                     },
-                    rules: {
-                        password: {
-                            minlength: 8
-                        }
-                    },
                     messages: {
                         bangsal_id: {
                             required: 'Mohon pilih salah satu.'
@@ -230,9 +235,6 @@
                         },
                         pasien_id: {
                             required: 'Mohon pilih salah satu.'
-                        },
-                        tanggal: {
-                            required: 'Mohon diisi.'
                         },
                         dokter_id: {
                             required: 'Mohon pilih salah satu.'

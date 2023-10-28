@@ -64,7 +64,9 @@
                                 <div class="form-group row">
                                     <label class="col-form-label col-lg-3">Bangsal</label>
                                     <div class="col-lg-9">
-                                        <select name="bangsal_id" id="bangsal_id" class="form-control form-control-select2" data-container-css-class="border-teal" data-dropdown-css-class="border-teal" required>
+                                        <select name="bangsal_id" id="bangsal_id"
+                                        class="form-control form-control-select2" data-container-css-class="border-teal"
+                                        data-dropdown-css-class="border-teal" required>
                                             <option value="">-- Pilih Bangsal --</option>
                                             @foreach ($bangsals as $bangsal)
                                                 <option value="{{$bangsal->id}}">{{$bangsal->nama}}</option>
@@ -76,7 +78,9 @@
                                 <div class="form-group row">
                                     <label class="col-form-label col-lg-3">Nomor</label>
                                     <div class="col-lg-9">
-                                        <input type="text" id="nomor" name="nomor" class="form-control border-teal border-1" placeholder="Nomor Ruang" value="{{ old('nomor') }}" required>
+                                        <input type="text" id="nomor" name="nomor"
+                                        class="form-control border-teal border-1"
+                                        placeholder="Nomor Ruang" value="{{ old('nomor') }}" required>
                                     </div>
                                 </div>
 

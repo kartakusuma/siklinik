@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('title', 'Dashboard')
-    
+
 @section('content')
     <!-- Page header -->
 	<div class="page-header page-header-light">
@@ -22,7 +22,7 @@
 @section('js')
     <script type="text/javascript">
         $( document ).ready(function() {
-    
+
             // Default style
             @if(session('error'))
             new PNotify({
@@ -40,7 +40,7 @@
                 type: 'success'
             });
             @endif
-    
+
         });
     </script>
 @endsection

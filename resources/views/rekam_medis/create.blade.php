@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'Rekam Medis')
+@section('title', 'Tambah Rekam Medis')
 
 @section('css')
 
@@ -34,7 +34,8 @@
                         <div class="form-group row">
 							<label class="col-form-label col-lg-2">Bangsal </label>
 							<div class="col-lg-10">
-								<select name="bangsal_id" id="bangsal_id" class="form-control form-control-select2" data-container-css-class="border-teal-300" data-dropdown-css-class="border-teal-300">
+								<select name="bangsal_id" id="bangsal_id" class="form-control form-control-select2"
+                                data-container-css-class="border-teal-300" data-dropdown-css-class="border-teal-300">
                                     <option value="">-- Pilih Bangsal --</option>
                                     @foreach ($bangsals as $bangsal)
                                         <option value="{{$bangsal->id}}">{{$bangsal->nama}}</option>
@@ -45,7 +46,8 @@
                         <div class="form-group row">
 							<label class="col-form-label col-lg-2">Ruang </label>
 							<div class="col-lg-10">
-								<select name="ruang_id" id="ruang_id" class="form-control form-control-select2" data-container-css-class="border-teal-300" data-dropdown-css-class="border-teal-300">
+								<select name="ruang_id" id="ruang_id" class="form-control form-control-select2"
+                                data-container-css-class="border-teal-300" data-dropdown-css-class="border-teal-300">
                                     <option value="">-- Pilih Ruang --</option>
                                 </select>
 							</div>
@@ -53,7 +55,8 @@
                         <div class="form-group row">
 							<label class="col-form-label col-lg-2">Pasien <span class="text-danger">*</span> </label>
 							<div class="col-lg-10">
-								<select name="pasien_id" id="pasien_id" class="form-control form-control-select2" data-container-css-class="border-teal-300" data-dropdown-css-class="border-teal-300" required>
+								<select name="pasien_id" id="pasien_id" class="form-control form-control-select2"
+                                data-container-css-class="border-teal-300" data-dropdown-css-class="border-teal-300" required>
                                     <option value="">-- Pilih Pasien --</option>
                                     @foreach ($pasiens as $pasien)
                                         <option value="{{$pasien->id}}">{{$pasien->nama}}</option>
@@ -64,37 +67,48 @@
                         <div class="form-group row">
 							<label class="col-form-label col-lg-2">Objektif <span class="text-danger">*</span> </label>
 							<div class="col-lg-10">
-                                <textarea name="objektif" id="objektif" class="form-control border-teal-300 border-1 @error('objektif') is-invalid @enderror" placeholder="Objektif" required cols="30" rows="5">{{ old('objektif') }}</textarea>
+                                <textarea name="objektif" id="objektif"
+                                class="form-control border-teal-300 border-1 @error('objektif') is-invalid @enderror"
+                                placeholder="Objektif" required cols="30" rows="5">{{ old('objektif') }}</textarea>
 							</div>
 						</div>
                         <div class="form-group row">
 							<label class="col-form-label col-lg-2">Subjektif <span class="text-danger">*</span> </label>
 							<div class="col-lg-10">
-                                <textarea name="subjektif" id="subjektif" class="form-control border-teal-300 border-1 @error('subjektif') is-invalid @enderror" placeholder="Subjektif" required cols="30" rows="5">{{ old('subjektif') }}</textarea>
+                                <textarea name="subjektif" id="subjektif"
+                                class="form-control border-teal-300 border-1 @error('subjektif') is-invalid @enderror"
+                                placeholder="Subjektif" required cols="30" rows="5">{{ old('subjektif') }}</textarea>
 							</div>
 						</div>
                         <div class="form-group row">
 							<label class="col-form-label col-lg-2">Kesadaran <span class="text-danger">*</span> </label>
 							<div class="col-lg-10">
-								<input type="text" name="kesadaran" class="form-control border-teal-300 border-1 @error('kesadaran') is-invalid @enderror" placeholder="Kesadaran" required autocomplete="off" value="{{ old('kesadaran') }}">
+								<input type="text" name="kesadaran"
+                                class="form-control border-teal-300 border-1 @error('kesadaran') is-invalid @enderror"
+                                placeholder="Kesadaran" required autocomplete="off" value="{{ old('kesadaran') }}">
 							</div>
 						</div>
                         <div class="form-group row">
 							<label class="col-form-label col-lg-2">Tingkat Nyeri <span class="text-danger">*</span> </label>
 							<div class="col-lg-10">
-								<input type="text" name="tingkat_nyeri" class="form-control border-teal-300 border-1 @error('tingkat_nyeri') is-invalid @enderror" placeholder="Tingkat Nyeri" required autocomplete="off" value="{{ old('tingkat_nyeri') }}">
+								<input type="text" name="tingkat_nyeri"
+                                class="form-control border-teal-300 border-1 @error('tingkat_nyeri') is-invalid @enderror"
+                                placeholder="Tingkat Nyeri" required autocomplete="off" value="{{ old('tingkat_nyeri') }}">
 							</div>
 						</div>
                         <div class="form-group row">
 							<label class="col-form-label col-lg-2">Riwayat </label>
 							<div class="col-lg-10">
-                                <textarea name="riwayat" id="riwayat" class="form-control border-teal-300 border-1 @error('riwayat') is-invalid @enderror" placeholder="Riwayat" cols="30" rows="5">{{ old('riwayat') }}</textarea>
+                                <textarea name="riwayat" id="riwayat"
+                                class="form-control border-teal-300 border-1 @error('riwayat') is-invalid @enderror"
+                                placeholder="Riwayat" cols="30" rows="5">{{ old('riwayat') }}</textarea>
 							</div>
 						</div>
                         <div class="form-group row">
 							<label class="col-form-label col-lg-2">Dokter <span class="text-danger">*</span> </label>
 							<div class="col-lg-10">
-								<select name="dokter_id" id="dokter_id" class="form-control form-control-select2" data-container-css-class="border-teal-300" data-dropdown-css-class="border-teal-300" required>
+								<select name="dokter_id" id="dokter_id" class="form-control form-control-select2"
+                                data-container-css-class="border-teal-300" data-dropdown-css-class="border-teal-300" required>
                                     @if (!in_array(Auth::user()->role_id, [10]))
                                         <option value="">-- Pilih Dokter --</option>
                                     @endif
@@ -107,7 +121,8 @@
                         <div class="form-group row">
 							<label class="col-form-label col-lg-2">Perawat <span class="text-danger">*</span> </label>
 							<div class="col-lg-10">
-								<select name="perawat_id" id="perawat_id" class="form-control form-control-select2" data-container-css-class="border-teal-300" data-dropdown-css-class="border-teal-300" required>
+								<select name="perawat_id" id="perawat_id" class="form-control form-control-select2"
+                                data-container-css-class="border-teal-300" data-dropdown-css-class="border-teal-300" required>
                                     @if (!in_array(Auth::user()->role_id, [20]))
                                         <option value="">-- Pilih Perawat --</option>
                                     @endif
@@ -210,11 +225,6 @@
                         // Other elements
                         else {
                             error.insertAfter(element);
-                        }
-                    },
-                    rules: {
-                        password: {
-                            minlength: 8
                         }
                     },
                     messages: {

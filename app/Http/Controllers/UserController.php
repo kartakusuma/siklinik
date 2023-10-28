@@ -113,7 +113,9 @@ class UserController extends Controller
 
         $data = $request->except(['password']);
 
-        if (User::where('username', $data['username'])->count() > 0) {
+        $user = User::find($id);
+
+        if ((User::where('username', $data['username'])->count() > 1) && ($user->username != $data['username'])) {
             return redirect()->back()->with('error', 'Username sudah digunakan');
         }
 
@@ -121,7 +123,7 @@ class UserController extends Controller
             $data['password'] = bcrypt($request->password);
         }
 
-        $updated = User::find($id)->update($data);
+        $updated = $user->update($data);
         if (!$updated) {
             return redirect()->back()->with('error', 'User gagal diubah');
         }

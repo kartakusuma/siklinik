@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'Resep Obat')
+@section('title', 'Buat Resep Obat')
 
 @section('css')
 
@@ -34,7 +34,8 @@
                         <div class="form-group row">
 							<label class="col-form-label col-lg-2">Bangsal </label>
 							<div class="col-lg-10">
-								<select name="bangsal_id" id="bangsal_id" class="form-control form-control-select2" data-container-css-class="border-teal-300" data-dropdown-css-class="border-teal-300">
+								<select name="bangsal_id" id="bangsal_id" class="form-control form-control-select2"
+                                data-container-css-class="border-teal-300" data-dropdown-css-class="border-teal-300">
                                     <option value="">-- Pilih Bangsal --</option>
                                     @foreach ($bangsals as $bangsal)
                                         <option value="{{$bangsal->id}}">{{$bangsal->nama}}</option>
@@ -45,7 +46,8 @@
                         <div class="form-group row">
 							<label class="col-form-label col-lg-2">Ruang </label>
 							<div class="col-lg-10">
-								<select name="ruang_id" id="ruang_id" class="form-control form-control-select2" data-container-css-class="border-teal-300" data-dropdown-css-class="border-teal-300">
+								<select name="ruang_id" id="ruang_id" class="form-control form-control-select2"
+                                data-container-css-class="border-teal-300" data-dropdown-css-class="border-teal-300">
                                     <option value="">-- Pilih Ruang --</option>
                                 </select>
 							</div>
@@ -53,7 +55,8 @@
                         <div class="form-group row">
 							<label class="col-form-label col-lg-2">Pasien <span class="text-danger">*</span> </label>
 							<div class="col-lg-10">
-								<select name="pasien_id" id="pasien_id" class="form-control form-control-select2" data-container-css-class="border-teal-300" data-dropdown-css-class="border-teal-300" required>
+								<select name="pasien_id" id="pasien_id" class="form-control form-control-select2"
+                                data-container-css-class="border-teal-300" data-dropdown-css-class="border-teal-300" required>
                                     <option value="">-- Pilih Pasien --</option>
                                     @foreach ($pasiens as $pasien)
                                         <option value="{{$pasien->id}}">{{$pasien->nama}}</option>
@@ -64,7 +67,8 @@
                         <div class="form-group row">
 							<label class="col-form-label col-lg-2">Dokter <span class="text-danger">*</span> </label>
 							<div class="col-lg-10">
-								<select name="dokter_id" id="dokter_id" class="form-control form-control-select2" data-container-css-class="border-teal-300" data-dropdown-css-class="border-teal-300" required>
+								<select name="dokter_id" id="dokter_id" class="form-control form-control-select2"
+                                data-container-css-class="border-teal-300" data-dropdown-css-class="border-teal-300" required>
                                     <option value="">-- Pilih Dokter --</option>
                                     @foreach ($dokters as $dokter)
                                         <option value="{{$dokter->id}}">{{$dokter->nama}}</option>
@@ -77,7 +81,8 @@
                             <div class="col-lg-10">
                                 <div class="row">
                                     <div class="col-md-11">
-                                        <textarea id="catatan_resep" name="catatan_resep[]" rows="3" class="form-control border-teal border-1" placeholder="Catatan Resep" required></textarea>
+                                        <textarea id="catatan_resep" name="catatan_resep[]" rows="3"
+                                        class="form-control border-teal border-1" placeholder="Catatan Resep" required></textarea>
                                     </div>
                                     <div class="col-md-1">
                                         <button type="button" class="btn btn-success btn-icon add-more2" style="display:block">
@@ -185,6 +190,12 @@
                         }
                     },
                     messages: {
+                        bangsal_id: {
+                            required: 'Mohon pilih salah satu.'
+                        },
+                        ruang_id: {
+                            required: 'Mohon pilih salah satu.'
+                        },
                         pasien_id: {
                             required: 'Mohon pilih salah satu.'
                         },

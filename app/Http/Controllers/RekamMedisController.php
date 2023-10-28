@@ -184,9 +184,9 @@ class RekamMedisController extends Controller
                 $rekamMedis['bangsal_string'] = '-';
                 $rekamMedis['ruang_string'] = '-';
             }
-            $rekamMedis['pasien_string'] = $rekamMedis->pasien->nama;
 
-            $rekamMedis['tanggal'] = $rekamMedis->created_at->format('d/m/Y');
+            $rekamMedis['pasien_string'] = $rekamMedis->pasien->nama;
+            $rekamMedis['tanggal'] = $rekamMedis->created_at->format('Y-m-d');
             $rekamMedis['jam'] = $rekamMedis->created_at->format('H:i');
         }
 

@@ -32,28 +32,28 @@
 						<legend class="text-uppercase font-size-sm font-weight-bold">Data User</legend>
 
                         <div class="form-group row">
-							<label class="col-form-label col-lg-2">Nama </label>
+							<label class="col-form-label col-lg-2">Nama</label>
                             <label class="col-form-label col-lg-10">{{$user->nama}}</label>
 						</div>
                         <div class="form-group row">
-							<label class="col-form-label col-lg-2">Username </label>
+							<label class="col-form-label col-lg-2">Username</label>
                             <label class="col-form-label col-lg-10">{{$user->username}}</label>
 						</div>
                         <div class="form-group row">
-							<label class="col-form-label col-lg-2">Jenis Kelamin </label>
-                            <label class="col-form-label col-lg-10">{{$user->gender_string}}</label>
+							<label class="col-form-label col-lg-2">Jenis Kelamin</label>
+                            <label class="col-form-label col-lg-10">{{$user->gender_string ? $user->gender_string : '-'}}</label>
 						</div>
                         <div class="form-group row">
-							<label class="col-form-label col-lg-2">Email </label>
-                            <label class="col-form-label col-lg-10">{{$user->email}}</label>
+							<label class="col-form-label col-lg-2">Email</label>
+                            <label class="col-form-label col-lg-10">{{$user->email ? $user->email : '-'}}</label>
 						</div>
                         <div class="form-group row">
-							<label class="col-form-label col-lg-2">Telepon </label>
-                            <label class="col-form-label col-lg-10">{{$user->telepon}}</label>
+							<label class="col-form-label col-lg-2">Telepon</label>
+                            <label class="col-form-label col-lg-10">{{$user->telepon ? $user->telepon : '-'}}</label>
 						</div>
                         <div class="form-group row">
 							<label class="col-form-label col-lg-2">Alamat </label>
-                            <label class="col-form-label col-lg-10">{{$user->alamat}}</label>
+                            <label class="col-form-label col-lg-10">{{$user->alamat ? $user->alamat : '-'}}</label>
 						</div>
                         <div class="form-group row">
 							<label class="col-form-label col-lg-2">Role </label>
@@ -61,7 +61,7 @@
 						</div>
                         <div class="form-group row">
 							<label class="col-form-label col-lg-2">Spesialisasi </label>
-                            <label class="col-form-label col-lg-10">{{$user->spesialisasi}}</label>
+                            <label class="col-form-label col-lg-10">{{$user->spesialisasi ? $user->spesialisasi : '-'}}</label>
 						</div>
 
 					</fieldset>

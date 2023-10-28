@@ -81,18 +81,18 @@ class ResepController extends Controller
         $datas['resep'] = Resep::find($id);
         $datas['statuses'] = Status::orderBy('id')->get();
 
-        $catatan_resep = '';
+        $catatan_resep = '<ol>';
         $catatans = explode(' ||', $datas['resep']->catatan_resep);
 
         foreach ($catatans as $catatan) {
             if ($catatan) {
-                $catatan_resep .= '<p>'.$catatan.'</p>';
+                $catatan_resep .= '<li>'.$catatan.'</li>';
             }
         }
-
-        $datas['resep']->tanggal = $datas['resep']->created_at->format('d/m/Y');
-
+        $catatan_resep .= '</ol>';
         $datas['resep']->catatan_resep = $catatan_resep;
+
+        $datas['resep']->tanggal = $datas['resep']->created_at->format('Y-m-d');
 
         return view('reseps.show', $datas);
     }
@@ -108,7 +108,6 @@ class ResepController extends Controller
         $datas['resep'] = Resep::find($id);
         $datas['pasiens'] = Pasien::orderBy('id')->get();
         $datas['dokters'] = User::where('role_id', 10)->orderBy('id')->get();
-        $datas['bangsals'] = Bangsal::orderBy('id')->get();
         $datas['bangsals'] = Bangsal::orderBy('id')->get();
         if ($datas['resep']->ruang_id) {
             $datas['ruangs'] = Ruang::where('bangsal_id', $datas['resep']->ruang->bangsal_id)->get();
@@ -201,8 +200,7 @@ class ResepController extends Controller
             $resep['pasien_string'] = $resep->pasien->nama;
             $resep['dokter_string'] = $resep->dokter->nama;
             $resep['status_string'] = $resep->status->nama;
-
-            $resep['tanggal'] = $resep->created_at->format('d/m/Y');
+            $resep['tanggal'] = $resep->created_at->format('Y-m-d');
         }
 
         return datatables()->of($reseps)->addIndexColumn()->toJson();

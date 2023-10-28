@@ -129,11 +129,14 @@ class PasienController extends Controller
 
     public function pasiensDatatable()
     {
-        $pasiens = Pasien::orderBy('id')->get();
+        $pasiens = Pasien::orderBy('id', 'desc')->get();
 
         foreach ($pasiens as $pasien) {
             $pasien['gender_string'] = $pasien->gender->nama;
-            $pasien['ttl'] = $pasien->tempat_lahir . '/' . $pasien->tanggal_lahir;
+            $pasien['ttl'] = $pasien->tempat_lahir . ' / ' . $pasien->tanggal_lahir;
+            if (!$pasien['tanggal_keluar']) {
+                $pasien['tanggal_keluar'] = '-';
+            }
         }
 
         return datatables()->of($pasiens)->addIndexColumn()->toJson();

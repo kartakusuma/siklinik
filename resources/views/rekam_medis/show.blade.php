@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'Rekam Medis')
+@section('title', 'Show Rekam Medis')
 
 @section('css')
 
@@ -11,7 +11,7 @@
 	<div class="page-header page-header-light">
 		<div class="page-header-content header-elements-md-inline">
 			<div class="page-title d-flex">
-				<h4><span class="font-weight-semibold">Detail</span> - Rekam Medis</h4>
+				<h4><span class="font-weight-semibold">Show</span> - Rekam Medis</h4>
 				<a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
 			</div>
 		</div>
@@ -32,51 +32,51 @@
 						<legend class="text-uppercase font-size-sm font-weight-bold">Data Rekam Medis</legend>
 
                         <div class="form-group row">
-							<label class="col-form-label col-lg-2">Bangsal </label>
-                            <label class="col-form-label col-lg-10">{{$rekamMedis->ruang_id ? $rekamMedis->ruang->bangsal->nama : ''}}</label>
+							<label class="col-form-label col-lg-2">Bangsal</label>
+                            <label class="col-form-label col-lg-10">{{$rekamMedis->ruang_id ? $rekamMedis->ruang->bangsal->nama : '-'}}</label>
                         </div>
                         <div class="form-group row">
-							<label class="col-form-label col-lg-2">Ruang </label>
-                            <label class="col-form-label col-lg-10">{{$rekamMedis->ruang_id ? $rekamMedis->ruang->nomor : ''}}</label>
+							<label class="col-form-label col-lg-2">Ruang</label>
+                            <label class="col-form-label col-lg-10">{{$rekamMedis->ruang_id ? $rekamMedis->ruang->nomor : '-'}}</label>
                         </div>
                         <div class="form-group row">
-							<label class="col-form-label col-lg-2">Pasien </label>
+							<label class="col-form-label col-lg-2">Pasien</label>
                             <label class="col-form-label col-lg-10">{{$rekamMedis->pasien->nama}}</label>
                         </div>
                         <div class="form-group row">
-							<label class="col-form-label col-lg-2">Tanggal </label>
+							<label class="col-form-label col-lg-2">Tanggal</label>
                             <label class="col-form-label col-lg-10">{{$rekamMedis->tanggal}}</label>
 						</div>
                         <div class="form-group row">
-							<label class="col-form-label col-lg-2">Jam </label>
+							<label class="col-form-label col-lg-2">Jam</label>
                             <label class="col-form-label col-lg-10">{{$rekamMedis->jam}}</label>
 						</div>
                         <div class="form-group row">
-							<label class="col-form-label col-lg-2">Objektif </label>
+							<label class="col-form-label col-lg-2">Objektif</label>
                             <label class="col-form-label col-lg-10">{{$rekamMedis->objektif}}</label>
 						</div>
                         <div class="form-group row">
-							<label class="col-form-label col-lg-2">Subjektif </label>
+							<label class="col-form-label col-lg-2">Subjektif</label>
                             <label class="col-form-label col-lg-10">{{$rekamMedis->subjektif}}</label>
 						</div>
                         <div class="form-group row">
-							<label class="col-form-label col-lg-2">Kesadaran </label>
+							<label class="col-form-label col-lg-2">Kesadaran</label>
                             <label class="col-form-label col-lg-10">{{$rekamMedis->kesadaran}}</label>
 						</div>
                         <div class="form-group row">
-							<label class="col-form-label col-lg-2">Tingkat Nyeri </label>
+							<label class="col-form-label col-lg-2">Tingkat Nyeri</label>
                             <label class="col-form-label col-lg-10">{{$rekamMedis->tingkat_nyeri}}</label>
 						</div>
                         <div class="form-group row">
-							<label class="col-form-label col-lg-2">Riwayat </label>
-                            <label class="col-form-label col-lg-10">{{$rekamMedis->riwayat}}</label>
+							<label class="col-form-label col-lg-2">Riwayat</label>
+                            <label class="col-form-label col-lg-10">{{$rekamMedis->riwayat ? $rekamMedis->riwayat : '-'}}</label>
 						</div>
                         <div class="form-group row">
-							<label class="col-form-label col-lg-2">Dokter </label>
+							<label class="col-form-label col-lg-2">Dokter</label>
                             <label class="col-form-label col-lg-10">{{$rekamMedis->dokter->nama}}</label>
                         </div>
                         <div class="form-group row">
-							<label class="col-form-label col-lg-2">Perawat </label>
+							<label class="col-form-label col-lg-2">Perawat</label>
                             <label class="col-form-label col-lg-10">{{$rekamMedis->perawat->nama}}</label>
                         </div>
 
